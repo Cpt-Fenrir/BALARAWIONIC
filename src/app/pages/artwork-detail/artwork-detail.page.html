@@ -1,0 +1,73 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/artworks" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Artwork Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="app-content">
+  <main class="page-shell detail-shell">
+    @if (artwork; as item) {
+      <article class="detail-layout">
+        <div class="detail-media">
+          <img [src]="item.image" [alt]="item.title + ' by ' + item.artist" />
+        </div>
+
+        <div class="detail-copy">
+          <app-status-chip
+            [label]="availabilityLabel(item)"
+            [tone]="availabilityTone(item)"
+          ></app-status-chip>
+          <p class="detail-overline">{{ item.artist }}</p>
+          <h1>{{ item.title }}</h1>
+          <p class="detail-price">{{ formatPrice(item.price) }}</p>
+
+          <dl class="detail-facts">
+            <div>
+              <dt>Medium</dt>
+              <dd>{{ item.medium }}</dd>
+            </div>
+            <div>
+              <dt>Year</dt>
+              <dd>{{ item.year }}</dd>
+            </div>
+            <div>
+              <dt>Dimensions</dt>
+              <dd>{{ item.dimensions }}</dd>
+            </div>
+          </dl>
+
+          <section class="detail-description">
+            <h2>About the work</h2>
+            <p>{{ item.description }}</p>
+          </section>
+
+          @if (item.availability === 'available') {
+            <aside class="availability-note availability-note--available">
+              This work is currently available in the BALARAW sample catalog.
+            </aside>
+          } @else {
+            <aside class="availability-note">
+              This work is shown for discovery but is currently {{ item.availability }}.
+            </aside>
+          }
+
+          <ion-button expand="block" routerLink="/artworks" fill="outline">
+            Back to gallery
+          </ion-button>
+        </div>
+      </article>
+    } @else {
+      <section class="empty-state">
+        <ion-icon name="close-circle-outline" aria-hidden="true"></ion-icon>
+        <h1>Artwork not found</h1>
+        <p>The requested sample record does not exist.</p>
+        <ion-button routerLink="/artworks">Return to gallery</ion-button>
+      </section>
+    }
+  </main>
+</ion-content>
+
+<app-mobile-nav></app-mobile-nav>

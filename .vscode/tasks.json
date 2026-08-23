@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "BALARAW: Run Mobile Prototype",
+      "type": "npm",
+      "script": "start",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Building|Application bundle generation",
+          "endsPattern": "Watch mode enabled|Local:"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "BALARAW: Production Build",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": "$tsc",
+      "group": "build"
+    },
+    {
+      "label": "BALARAW: Run Tests",
+      "type": "npm",
+      "script": "test",
+      "args": ["--", "--watch=false"],
+      "problemMatcher": "$tsc",
+      "group": "test"
+    }
+  ]
+}

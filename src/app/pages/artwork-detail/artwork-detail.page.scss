@@ -1,0 +1,132 @@
+.detail-shell {
+  padding-top: 1.5rem;
+}
+
+.detail-layout {
+  background: var(--balaraw-paper);
+  border: 1px solid #d9cebb;
+  display: grid;
+}
+
+.detail-media {
+  aspect-ratio: 1 / 1;
+  background: #e8dfd0;
+  overflow: hidden;
+}
+
+.detail-media img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.detail-copy {
+  padding: 1.35rem;
+}
+
+.detail-overline {
+  color: var(--balaraw-marigold);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 1rem 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.detail-copy h1 {
+  color: var(--balaraw-ink);
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(2.6rem, 11vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.detail-price {
+  color: var(--balaraw-clay);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0.8rem 0 1.2rem;
+  text-transform: uppercase;
+}
+
+.detail-facts {
+  border-block: 1px solid #ded3c2;
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.detail-facts dt {
+  color: #8b8174;
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.detail-facts dd {
+  color: var(--balaraw-dune);
+  font-size: 0.78rem;
+  margin: 0.3rem 0 0;
+}
+
+.detail-description h2 {
+  color: var(--balaraw-ink);
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  margin: 1.3rem 0 0.45rem;
+}
+
+.detail-description p {
+  color: #5f574d;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.availability-note {
+  background: #ece5d7;
+  border-left: 3px solid #8f8f8f;
+  color: #5f574d;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  margin: 1.1rem 0;
+  padding: 0.85rem;
+}
+
+.availability-note--available {
+  background: #e6f0e8;
+  border-color: #4f7b5b;
+}
+
+ion-button {
+  --border-color: var(--balaraw-clay);
+  --border-radius: 0;
+  --color: var(--balaraw-clay);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 760px) {
+  .detail-layout {
+    align-items: stretch;
+    grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.85fr);
+  }
+
+  .detail-copy {
+    align-content: center;
+    display: grid;
+    padding: 2.5rem;
+  }
+
+  .detail-facts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

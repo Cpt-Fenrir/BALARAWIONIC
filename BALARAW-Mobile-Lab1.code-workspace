@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "name": "BALARAW Mobile Lab 1",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "files.exclude": {
+      "www": true
+    }
+  }
+}

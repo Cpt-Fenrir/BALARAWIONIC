@@ -1,0 +1,28 @@
+<article class="artwork-card">
+  <a class="artwork-card__media" [routerLink]="['/artworks', artwork().id]">
+    <img [src]="artwork().image" [alt]="artwork().title + ' artwork preview'" />
+    <app-status-chip
+      [label]="availabilityLabel()"
+      [tone]="availabilityTone()"
+    ></app-status-chip>
+  </a>
+
+  <div class="artwork-card__body">
+    <p class="artwork-card__artist">{{ artwork().artist }}</p>
+    <h2>{{ artwork().title }}</h2>
+    <p class="artwork-card__meta">
+      {{ artwork().medium }} · {{ artwork().year }}
+    </p>
+    <div class="artwork-card__footer">
+      <strong>{{ formatPrice(artwork().price) }}</strong>
+      <a
+        class="artwork-card__link"
+        [routerLink]="['/artworks', artwork().id]"
+        [attr.aria-label]="'View details for ' + artwork().title"
+      >
+        View
+        <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+      </a>
+    </div>
+  </div>
+</article>

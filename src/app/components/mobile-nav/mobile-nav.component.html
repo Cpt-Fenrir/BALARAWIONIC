@@ -1,0 +1,27 @@
+<nav class="mobile-nav" aria-label="Primary navigation">
+  <a
+    class="mobile-nav__item"
+    routerLink="/home"
+    routerLinkActive="is-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <ion-icon name="home-outline" aria-hidden="true"></ion-icon>
+    <span>Home</span>
+  </a>
+  <a
+    class="mobile-nav__item"
+    routerLink="/artworks"
+    routerLinkActive="is-active"
+  >
+    <ion-icon name="images-outline" aria-hidden="true"></ion-icon>
+    <span>Artworks</span>
+  </a>
+  <a
+    class="mobile-nav__item"
+    routerLink="/exhibitions"
+    routerLinkActive="is-active"
+  >
+    <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+    <span>Exhibitions</span>
+  </a>
+</nav>

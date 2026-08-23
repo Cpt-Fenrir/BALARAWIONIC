@@ -1,0 +1,26 @@
+<article class="exhibition-card">
+  <a class="exhibition-card__media" [routerLink]="['/exhibitions', exhibition().id]">
+    <img
+      [src]="exhibition().image"
+      [alt]="exhibition().name + ' exhibition preview'"
+    />
+  </a>
+  <div class="exhibition-card__body">
+    <app-status-chip
+      [label]="statusLabel()"
+      [tone]="statusTone()"
+    ></app-status-chip>
+    <h2>{{ exhibition().name }}</h2>
+    <p class="exhibition-card__venue">
+      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+      {{ exhibition().venue }}
+    </p>
+    <p class="exhibition-card__dates">
+      {{ exhibition().startDate }} - {{ exhibition().endDate }}
+    </p>
+    <a class="exhibition-card__link" [routerLink]="['/exhibitions', exhibition().id]">
+      Explore exhibition
+      <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+    </a>
+  </div>
+</article>

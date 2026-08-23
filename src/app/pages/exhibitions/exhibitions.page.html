@@ -1,0 +1,58 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <a class="brand" routerLink="/home" aria-label="BALARAW home">
+      <img class="brand__logo" src="assets/balaraw/logo-white.png" alt="BALARAW" />
+    </a>
+    <span class="toolbar-count" slot="end">
+      {{ filteredExhibitions.length }} {{ filteredExhibitions.length === 1 ? 'show' : 'shows' }}
+    </span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="app-content">
+  <header class="catalog-hero exhibitions-hero">
+    <img
+      class="catalog-hero__image"
+      src="assets/balaraw/feature-collage.jpg"
+      alt="BALARAW exhibition wall"
+    />
+    <div class="catalog-hero__shade"></div>
+    <div class="page-shell page-intro">
+      <span>Exhibition Calendar</span>
+      <h1>See What Is On at Katha Art Space</h1>
+      <p>Browse current, upcoming, and past exhibitions in the BALARAW mobile catalog.</p>
+    </div>
+  </header>
+
+  <main class="page-shell exhibitions-surface">
+    <section class="timeline-filter" aria-label="Exhibition timeline filter">
+      @for (option of statusOptions; track option.value) {
+        <button
+          type="button"
+          [class.is-active]="selectedStatus === option.value"
+          (click)="selectStatus(option.value)"
+        >
+          {{ option.label }}
+        </button>
+      }
+    </section>
+
+    <div class="section-title">
+      <span></span>
+      <h2>Exhibition Highlights</h2>
+    </div>
+
+    <section class="catalog-grid" aria-label="Exhibition results">
+      @for (exhibition of filteredExhibitions; track exhibition.id) {
+        <app-exhibition-card [exhibition]="exhibition"></app-exhibition-card>
+      } @empty {
+        <div class="empty-state">
+          <h2>No exhibitions found</h2>
+          <p>There are no sample exhibitions for this timeline.</p>
+        </div>
+      }
+    </section>
+  </main>
+</ion-content>
+
+<app-mobile-nav></app-mobile-nav>

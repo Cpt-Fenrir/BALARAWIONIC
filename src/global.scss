@@ -1,0 +1,224 @@
+/* Ionic core and utility styles. */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+:root {
+  --balaraw-parchment: #f0e6cc;
+  --balaraw-paper: #faf5ec;
+  --balaraw-marigold: #c4922a;
+  --balaraw-dune: #2e2b26;
+  --balaraw-ink: #1c1a17;
+  --balaraw-clay: #8c3a2d;
+  --balaraw-mist: #8f8f8f;
+  --balaraw-max-width: 1240px;
+}
+
+html,
+body {
+  background: var(--balaraw-parchment);
+}
+
+body {
+  color: var(--balaraw-dune);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+img {
+  display: block;
+}
+
+ion-content.app-content {
+  --background: var(--balaraw-parchment);
+}
+
+.app-header ion-toolbar {
+  --background: rgba(28, 26, 23, 0.98);
+  --border-color: rgba(250, 245, 236, 0.14);
+  --color: #faf5ec;
+  --min-height: 4.5rem;
+  --padding-end: 1rem;
+  --padding-start: 1rem;
+}
+
+.app-header ion-title {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.app-header ion-back-button {
+  --color: var(--balaraw-marigold);
+}
+
+.brand {
+  align-items: center;
+  display: inline-flex;
+  min-height: 4rem;
+  text-decoration: none;
+}
+
+.brand__logo {
+  height: 3.75rem;
+  object-fit: contain;
+  object-position: left center;
+  width: 8.7rem;
+}
+
+.lab-label,
+.toolbar-count {
+  color: #d6cdbf;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  padding-right: 0.2rem;
+  text-transform: uppercase;
+}
+
+.page-shell {
+  margin-inline: auto;
+  max-width: var(--balaraw-max-width);
+  padding: 1.3rem 1rem 6.5rem;
+  width: 100%;
+}
+
+.catalog-hero {
+  color: #faf5ec;
+  min-height: 21rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.catalog-hero__image,
+.catalog-hero__shade {
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.catalog-hero__image {
+  object-fit: cover;
+}
+
+.catalog-hero__shade {
+  background: linear-gradient(180deg, rgba(28, 26, 23, 0.28), rgba(28, 26, 23, 0.86));
+}
+
+.page-intro {
+  min-height: 21rem;
+  padding-bottom: 2.8rem;
+  padding-top: 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page-intro > span {
+  align-items: center;
+  color: var(--balaraw-marigold);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 600;
+  gap: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.page-intro > span::before {
+  background: var(--balaraw-marigold);
+  content: "";
+  height: 1px;
+  width: 3.2rem;
+}
+
+.page-intro h1 {
+  color: #faf5ec;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  margin: 0.85rem 0;
+  max-width: 48rem;
+}
+
+.page-intro p {
+  color: #d7cec1;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 40rem;
+}
+
+.catalog-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.empty-state {
+  align-items: center;
+  background: var(--balaraw-paper);
+  border: 1px dashed #cdbfa9;
+  color: #655d52;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 16rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.empty-state ion-icon {
+  color: var(--balaraw-clay);
+  font-size: 2.25rem;
+}
+
+.empty-state h1,
+.empty-state h2,
+.empty-state h3 {
+  color: var(--balaraw-ink);
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-weight: 500;
+  margin: 0.8rem 0 0.25rem;
+}
+
+.empty-state p {
+  margin: 0 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 940px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .page-shell {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .toolbar-count {
+    max-width: 5.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

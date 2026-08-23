@@ -1,0 +1,39 @@
+:host {
+  display: inline-flex;
+}
+
+.status-chip {
+  align-items: center;
+  border: 1px solid transparent;
+  display: inline-flex;
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  padding: 0.38rem 0.52rem;
+  text-transform: uppercase;
+}
+
+.status-chip--positive {
+  background: rgba(28, 26, 23, 0.72);
+  border-color: rgba(95, 217, 95, 0.35);
+  color: #74dc74;
+}
+
+.status-chip--warning {
+  background: #f6ead0;
+  border-color: #e5ca91;
+  color: #825e16;
+}
+
+.status-chip--accent {
+  background: var(--balaraw-clay);
+  border-color: var(--balaraw-clay);
+  color: #faf5ec;
+}
+
+.status-chip--muted {
+  background: #e2dbcf;
+  border-color: #d4cab9;
+  color: #655d52;
+}

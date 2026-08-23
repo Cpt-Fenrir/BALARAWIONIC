@@ -1,0 +1,84 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/exhibitions" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Exhibition Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="app-content">
+  <main class="page-shell exhibition-detail-shell">
+    @if (exhibition; as show) {
+      <article>
+        <div class="exhibition-hero">
+          <img [src]="show.image" [alt]="show.name + ' exhibition preview'" />
+          <div class="exhibition-hero__shade"></div>
+          <div class="exhibition-hero__copy">
+            <app-status-chip
+              [label]="statusLabel(show)"
+              [tone]="statusTone(show)"
+            ></app-status-chip>
+            <h1>{{ show.name }}</h1>
+          </div>
+        </div>
+
+        <section class="exhibition-summary">
+          <p>{{ show.description }}</p>
+          <div class="exhibition-facts">
+            <div>
+              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+              <span>
+                <small>Venue</small>
+                <strong>{{ show.venue }}</strong>
+              </span>
+            </div>
+            <div>
+              <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon>
+              <span>
+                <small>Schedule</small>
+                <strong>{{ show.startDate }} - {{ show.endDate }}</strong>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section class="included-works">
+          <header>
+            <span>Curated selection</span>
+            <h2>Works in this exhibition</h2>
+            <p>
+              {{ includedArtworks.length }}
+              {{ includedArtworks.length === 1 ? 'sample work' : 'sample works' }}
+              connected to this exhibition.
+            </p>
+          </header>
+
+          <div class="catalog-grid">
+            @for (artwork of includedArtworks; track artwork.id) {
+              <app-artwork-card [artwork]="artwork"></app-artwork-card>
+            } @empty {
+              <div class="empty-state">
+                <h3>No linked artworks</h3>
+                <p>This sample exhibition does not have linked works yet.</p>
+              </div>
+            }
+          </div>
+        </section>
+
+        <ion-button expand="block" routerLink="/exhibitions" fill="outline">
+          Back to exhibitions
+        </ion-button>
+      </article>
+    } @else {
+      <section class="empty-state">
+        <ion-icon name="close-circle-outline" aria-hidden="true"></ion-icon>
+        <h1>Exhibition not found</h1>
+        <p>The requested sample record does not exist.</p>
+        <ion-button routerLink="/exhibitions">Return to exhibitions</ion-button>
+      </section>
+    }
+  </main>
+</ion-content>
+
+<app-mobile-nav></app-mobile-nav>

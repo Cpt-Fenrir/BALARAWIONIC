@@ -1,0 +1,58 @@
+.catalog-hero__image {
+  object-position: center 34%;
+}
+
+.gallery-surface {
+  background: var(--balaraw-paper);
+}
+
+.filter-panel {
+  align-items: end;
+  border-bottom: 1px solid #d9cebb;
+  border-top: 1px solid #d9cebb;
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+  padding: 0.8rem 0;
+}
+
+.filter-panel__label {
+  color: #7a7060;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+ion-searchbar {
+  --background: transparent;
+  --border-radius: 0;
+  --box-shadow: none;
+  --color: var(--balaraw-ink);
+  --icon-color: var(--balaraw-clay);
+  border: 1px solid var(--balaraw-dune);
+  min-height: 3rem;
+  padding: 0;
+}
+
+ion-select {
+  --background: transparent;
+  --border-color: transparent;
+  --border-radius: 0;
+  --color: var(--balaraw-ink);
+  --highlight-color-focused: var(--balaraw-clay);
+  border: 1px solid var(--balaraw-dune);
+  min-height: 3rem;
+  padding: 0.2rem 0.8rem;
+}
+
+@media (min-width: 700px) {
+  .filter-panel {
+    grid-template-columns: auto minmax(18rem, 1fr) minmax(13rem, 0.42fr);
+  }
+
+  .filter-panel__label {
+    align-self: center;
+    padding-right: 0.4rem;
+  }
+}

@@ -1,0 +1,103 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <a class="brand" routerLink="/home" aria-label="BALARAW home">
+      <img
+        class="brand__logo"
+        src="assets/balaraw/logo-white.png"
+        alt="BALARAW"
+      />
+    </a>
+    <span class="lab-label" slot="end">ITWS07 · LAB 1</span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="app-content home-page">
+  <main class="home-layout">
+    <section class="hero">
+      <img
+        class="hero__background"
+        src="assets/balaraw/hero-bg.jpg"
+        alt="Entrance of Katha Art Space"
+      />
+      <div class="hero__shade"></div>
+
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <div class="hero__eyebrow"><span></span>Contemporary Art Gallery</div>
+          <h1>BALARAW</h1>
+          <div class="hero__partner">
+            <span></span>
+            <p>in partnership with <strong>Katha Art Space</strong></p>
+          </div>
+          <p class="hero__description">
+            A contemporary art platform dedicated to the voices, visions, and
+            traditions of Filipino artists, bridging ancestral heritage with
+            bold present-tense expression.
+          </p>
+          <div class="hero__actions">
+            <a class="hero__button hero__button--gold" routerLink="/artworks">
+              Explore the collection
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+            <a class="hero__button" routerLink="/exhibitions">
+              View exhibitions
+            </a>
+          </div>
+        </div>
+
+        <a class="hero-feature" routerLink="/exhibitions/1">
+          <span class="hero-feature__tag">Featuring <b>→</b></span>
+          <div class="hero-feature__body">
+            <img
+              src="assets/balaraw/feature-collage.jpg"
+              alt="BALARAW gallery wall featured exhibition"
+            />
+            <h2>Alter Ego</h2>
+            <p>
+              Discover a featured exhibition through BALARAW's mobile catalog.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="hero__location">Clamonte St., Aduas Sur, Cabanatuan City</div>
+    </section>
+
+    <section class="selected-section page-shell">
+      <header class="section-heading">
+        <span>Selected Works</span>
+        <h2>Featured Collection</h2>
+        <p>{{ artworkCount }} real BALARAW capstone images in this Lab 1 gallery.</p>
+      </header>
+
+      <div class="catalog-grid">
+        @for (artwork of featuredArtworks; track artwork.id) {
+          <app-artwork-card [artwork]="artwork"></app-artwork-card>
+        }
+      </div>
+
+      <a class="text-link" routerLink="/artworks">View all works →</a>
+    </section>
+
+    <section class="about-band">
+      <img
+        src="assets/balaraw/about-image.jpg"
+        alt="People viewing and discussing artworks at BALARAW"
+      />
+      <div class="about-band__copy">
+        <span>About BALARAW</span>
+        <h2>Contemporary but grounded in tradition</h2>
+        <p>
+          This mobile Lab 1 keeps the capstone's public art and exhibition
+          discovery experience simple, recognizable, and easy to demonstrate.
+        </p>
+        <div class="about-band__stats">
+          <b>{{ artworkCount }}</b> artworks · <b>{{ exhibitionCount }}</b> exhibitions
+        </div>
+      </div>
+    </section>
+
+  </main>
+</ion-content>
+
+<app-mobile-nav></app-mobile-nav>

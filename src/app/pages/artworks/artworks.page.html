@@ -1,0 +1,70 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <a class="brand" routerLink="/home" aria-label="BALARAW home">
+      <img class="brand__logo" src="assets/balaraw/logo-white.png" alt="BALARAW" />
+    </a>
+    <span class="toolbar-count" slot="end">
+      {{ filteredArtworks.length }} {{ filteredArtworks.length === 1 ? 'work' : 'works' }}
+    </span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="app-content">
+  <header class="catalog-hero">
+    <img
+      class="catalog-hero__image"
+      src="assets/balaraw/hero-bg.jpg"
+      alt="Katha Art Space gallery entrance"
+    />
+    <div class="catalog-hero__shade"></div>
+    <div class="page-shell page-intro">
+      <span>Public Gallery</span>
+      <h1>Discover Our Art Collection</h1>
+      <p>
+        Search the featured BALARAW works by title, artist, or medium using the
+        same warm editorial style as the capstone gallery.
+      </p>
+    </div>
+  </header>
+
+  <main class="page-shell gallery-surface">
+    <section class="filter-panel" aria-label="Artwork filters">
+      <div class="filter-panel__label">Filter collection</div>
+      <ion-searchbar
+        [(ngModel)]="searchTerm"
+        placeholder="Search title, artist, or medium"
+        [debounce]="150"
+        show-clear-button="focus"
+      ></ion-searchbar>
+
+      <ion-select
+        [(ngModel)]="selectedMedium"
+        label="Medium"
+        label-placement="stacked"
+        interface="popover"
+      >
+        <ion-select-option value="all">All mediums</ion-select-option>
+        @for (medium of mediums; track medium) {
+          <ion-select-option [value]="medium">{{ medium }}</ion-select-option>
+        }
+      </ion-select>
+    </section>
+
+    @if (filteredArtworks.length > 0) {
+      <section class="catalog-grid" aria-label="Artwork results">
+        @for (artwork of filteredArtworks; track artwork.id) {
+          <app-artwork-card [artwork]="artwork"></app-artwork-card>
+        }
+      </section>
+    } @else {
+      <section class="empty-state">
+        <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+        <h2>No artworks found</h2>
+        <p>Try another search or reset the selected medium.</p>
+        <ion-button fill="outline" (click)="clearFilters()">Clear filters</ion-button>
+      </section>
+    }
+  </main>
+</ion-content>
+
+<app-mobile-nav></app-mobile-nav>

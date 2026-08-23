@@ -1,0 +1,64 @@
+.exhibitions-hero .catalog-hero__image {
+  object-position: center;
+}
+
+.exhibitions-surface {
+  background: var(--balaraw-parchment);
+}
+
+.timeline-filter {
+  border-bottom: 1px solid #d8ccb7;
+  border-top: 1px solid #d8ccb7;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1.75rem;
+}
+
+.timeline-filter button {
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  color: #655d52;
+  cursor: pointer;
+  font: inherit;
+  font-size: clamp(0.61rem, 2.4vw, 0.72rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  min-height: 3.2rem;
+  overflow: hidden;
+  padding: 0.6rem 0.2rem;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.timeline-filter button.is-active {
+  border-bottom-color: var(--balaraw-clay);
+  color: var(--balaraw-clay);
+}
+
+.timeline-filter button:focus-visible {
+  outline: 2px solid var(--balaraw-marigold);
+  outline-offset: 2px;
+}
+
+.section-title {
+  align-items: center;
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.section-title span {
+  background: var(--balaraw-ink);
+  height: 0.7rem;
+  width: 0.7rem;
+}
+
+.section-title h2 {
+  color: var(--balaraw-ink);
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: clamp(2rem, 7vw, 2.75rem);
+  font-weight: 400;
+  margin: 0;
+}

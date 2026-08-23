@@ -1,0 +1,94 @@
+.artwork-card {
+  background: #efefef;
+  border: 1px solid rgba(46, 43, 38, 0.1);
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.artwork-card:hover {
+  box-shadow: 0 12px 26px rgba(46, 43, 38, 0.14);
+  transform: translateY(-0.2rem);
+}
+
+.artwork-card__media {
+  aspect-ratio: 1 / 1;
+  background: #e8dfd0;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.artwork-card__media img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 180ms ease;
+  width: 100%;
+}
+
+.artwork-card__media:hover img {
+  transform: scale(1.025);
+}
+
+.artwork-card__media app-status-chip {
+  position: absolute;
+  right: 0.6rem;
+  top: 0.6rem;
+}
+
+.artwork-card__body {
+  background: #efefef;
+  min-height: 9.3rem;
+  padding: 0.85rem 0.9rem 0.95rem;
+}
+
+.artwork-card__artist {
+  color: #9e7830;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--balaraw-ink);
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 1.48rem;
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.artwork-card__meta {
+  color: var(--balaraw-mist);
+  font-size: 0.65rem;
+  margin: 0.35rem 0 0;
+}
+
+.artwork-card__footer {
+  align-items: center;
+  border-top: 1px solid #ddd8d0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+}
+
+.artwork-card__footer strong {
+  color: var(--balaraw-dune);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.artwork-card__link {
+  align-items: center;
+  color: var(--balaraw-clay);
+  display: inline-flex;
+  font-size: 0.66rem;
+  font-weight: 700;
+  gap: 0.1rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
